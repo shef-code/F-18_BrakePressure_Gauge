@@ -99,11 +99,14 @@ void loop() {
     renderGauge(map_brake(rb));
     lastFrameMs = now;
   }
+
+  yield();
+  
 }
 
 // ── Rendering ──────────────────────────────────────────────────────────────────
 void renderGauge(int16_t angleDeg) {
-  sprBack.fillSprite(TFT_BLACK);
+  //sprBack.fillSprite(TFT_BLACK);
   sprBack.pushImage(0, 0, CANVAS_W, CANVAS_H, brakePressBackground);
   sprNeedle.pushRotated(&sprBack, angleDeg, TFT_TRANSPARENT);
   sprBack.pushSprite(0, 0);
